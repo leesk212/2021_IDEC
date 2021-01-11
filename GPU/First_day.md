@@ -69,5 +69,18 @@ mul r1, r1, r1
 * single core에서 5번의 clock이 걸리게 되는데 이를 어떻게 빠르게 증가시킬 수 있을까?
 ## Instruction Level Parallelism
 * Increasing ILP
-* * 과 +를 일정부분만 증가시킴으로써 clock을 5->3으로 바꿀 수 있다. 
+* * 과 +를 일정부분만 증가시킴으로써 clock을 5->3으로 바꿀 수 있다.   
 ![그림](./IMG/1.png)
+
+## Single-thread Performance Scaling
+* 이런 ILP의 증가는 2007년 이후로 크게 퍼포먼스가 증가하지 않았다.
+* 왜냐하면, Instruction수를 늘려서 연산을 빠르게 수행하는 것임으로, window를 늘려도 dependency가 걸리기 때문에, 성능 저하가 생기게 된다.
+* ILP scaling limit -> Increasing frequency
+* 하지만 frequency를 늘려도 결국엔 한계에 다다랐다. (이때 Intel이 약간의 이득을 봤다)
+* 결국 transitor의 갯수만 늘리게 되었는데 그래도 한계가 생기게 될 것이다.
+  * Moore's law가 끝이 될 것 같은가..?
+  * 아직은 아니다.
+* frequency가 증가되지 않을때쯤, 코어수를 늘리게 되어 transitor의 집적도 계산이 크게 늘어나게 되었다.
+
+## Concurrency Revolution
+* 
