@@ -28,6 +28,7 @@
 ## Supercomputers in the world
 * 미국의 ibm의 컴퓨터에 일본의 슈퍼컴퓨터에게 밀리게 되었다.
 * 새로나온 일본의 슈퍼컴퓨터가 gpu를 사용하지 않고 cpu를 사용한다.
+* 그 CPU가 ARM이기에, ARM 만으로 intel을 
 
 ## Why massively parallel processing
 * 초창기의 CPU와 GPU가 많이 차이나지 않았지만 ( CPU를 기반으로 GPU를 만들었기 때문에!! )
@@ -51,7 +52,7 @@
 * 기본적으로 18배~150배까지 성능차이가 CPU보다 좋음을 확인할 수 있음
 * CPU 보다 GPU가 더욱 우얼한 성능을 갖고 있음을 모든 지표에서 확인할 수 있음
 
-# Summary
+## Summary
 * 원래는 그래픽 렌더링하기 위해서 ( 광원, 시점, 재질 )에 따라서 쓰였다!
 * GPU의 특성상 병렬처리가 잘되다 보니까, 게이밍에 그래픽 프로세싱을 Mining하는데 매우 많이 쓰이게 되었다.
   * Mining 단순한 해쉬 함수를 풀어가지고, 코인을 무상으로 받는데, 계속해서 유지하는 거싱 BlockChain인데, 단순한 연산이기 때문에 아예 그 코인을 위한 Basic이 활용이 되고 있음!! 단순연산을 반복하는 과정이 있기 때문에 Mining에 많이 쓰이게 되었다.!!!
@@ -83,4 +84,56 @@ mul r1, r1, r1
 * frequency가 증가되지 않을때쯤, 코어수를 늘리게 되어 transitor의 집적도 계산이 크게 늘어나게 되었다.
 
 ## Concurrency Revolution
-* 
+* CPU -> multicore / GPU -> manycore 의 방향으로 이동되고 있다.
+* CPU도 이제는 병렬처리에 쓸 수 있다. 
+* 프로그래는 반드시 multiple core programming을 잘 알아야한다.
+* Parallel Computing ( Supercomputing -> normal programmer ) 
+  * ssd Conroller .. 등등
+  
+## The "New" Moore's law
+* 더이상 컴퓨터는 빨라지는 것이 아니라, 병렬화의 시대로 넘어가게 되었다.
+* 모든 알고리즘을 parallel 하게 사용해야만 한다.
+
+## Cuda
+* GPU <-> CPU 동기화 제공 및 연결 관리 가능
+
+## Generic Many-core Chip (GPU)
+![2](./IMG/2.png)  
+* Global Memory -> HBM2 ,  GDDR6 
+* On-chip memory -> near processors, cache,Ram
+* Shared global memory space
+
+## Design philosophy
+* Latency-oriented cores -> CPU가 처리하고 싶은 것
+* 몇개의 연산을 한번에 처리할 수 있는가 -> GPU가 처리하고 싶은 것
+* ALU를 엄청 많이 넣고, Control과 Cache는 부분은 작아지는 형태이다.
+
+## Lessons from Graphics Pipeline
+* Throughput is the most important factor!!!
+  * 병렬적으로 처리할 수 있는 큰 특징을 갖고 있기에 Scalability도 좋다.
+  * 즉, 늘리기만 하면 성능도 같이 매우 늘어난다.
+* FPS --> threads very rapidly 
+  * 60FPS
+* Multi-threading을 사용하기 위해서 !!!
+
+## Current Parallel Processing Models
+* CUDA
+  * Nvidia architecture가 있어야만 GPU 코딩을 할 수 있음
+  * ARM CPU -> Cuda를 내장 시키는 그런 과정이 있을 수도 있음
+  * 
+* OpenCL
+  * 병렬적으로 데이터 처리를 할 수 있고 CPU,GPU모두 쓸 수 있음
+  * 더 대중화가 될 수 있다.
+
+# Parallel Computing History and CUDA Model
+
+## 3D Graphics Pipeline
+### Computer Graphics
+* 더 큰 이미지를 만듦, 더 실제적인 이미들을 만들기 위해서 컴퓨터 그래픽 분야가 발전했기 때문이다.
+* 사진으로 만들어내는 것이랑, 게임에서 처리하는 것은 조금 다른 분야다.
+* 하드웨어를 더 많이 때려박는 방식으로 쓰였다. --> 결국 아깝기에, 컴퓨팅 디바이스로 쓰이게 되었다.
+## Hardware Development
+## Early GPGPU
+## OpenGL
+## GPU 
+
