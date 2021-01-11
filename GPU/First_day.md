@@ -132,6 +132,24 @@ mul r1, r1, r1
 * 더 큰 이미지를 만듦, 더 실제적인 이미들을 만들기 위해서 컴퓨터 그래픽 분야가 발전했기 때문이다.
 * 사진으로 만들어내는 것이랑, 게임에서 처리하는 것은 조금 다른 분야다.
 * 하드웨어를 더 많이 때려박는 방식으로 쓰였다. --> 결국 아깝기에, 컴퓨팅 디바이스로 쓰이게 되었다.
+### Graphics Pipeline
+* 1. Fetch
+  *  특정 좌표값을 받아서 메모리를 로드 하는 단계
+  * (x,y,z)로 되어있는 배열 값임
+* 2. vertex Processor
+  * 3차원의 공간의 어떤 위치에 존재하는지를 만들어준다.
+  * (x,y,z)를 연결하면 면을 만들 수있다.
+* 3. Rasterizer 
+  * 이들을 모두 fragment로 만든다.
+* 4. Fragment Processor
+  * 이후 Fragment들을 병렬처리를 진행한다. ( 광원이나 시점에 따라서 색 값을 정해준게 된다. ) 
+* 5. Output Merging  
+  * 마지막으로 Output Merging을 통해 Depth test를 진행을 한다.
+    * Depth test, 특정 부분은 보이지 않는 부분일 것이다. (즉, 날릴 부분들을 날리고, 프로세싱할 부분들은 프로세싱하면 된다.)
+    * 3차원이기에 그런 특징을 표현할 것이다.
+* 6. Famebuffer
+  * fragment들을 각각의 해상도에 맞게 표시를 진행해주는 것!!
+  
 ## Hardware Development
 ## Early GPGPU
 ## OpenGL
