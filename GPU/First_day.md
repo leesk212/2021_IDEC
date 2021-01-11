@@ -174,8 +174,9 @@ mul r1, r1, r1
 * 병렬적으로 vertices들을 처리를 하고, 동일하게 실행가능하다.
 * serialization bottleneck에대한 하드웨어들을 더 효율적으로 다룰 수 있다.
 
-## Hardware Development
-## Early GPGPU
-## OpenGL
-## GPU 
 
+# Simple CUDA Program Scenario
+* CPU가 먼저 main memroy에서 vram으로 데이터를 주고
+* vRam에서 GPU로 연산을 한다.
+* consistency나 memcpy등을 cpu가 진행한다.
+* 
