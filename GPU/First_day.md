@@ -133,23 +133,47 @@ mul r1, r1, r1
 * 사진으로 만들어내는 것이랑, 게임에서 처리하는 것은 조금 다른 분야다.
 * 하드웨어를 더 많이 때려박는 방식으로 쓰였다. --> 결국 아깝기에, 컴퓨팅 디바이스로 쓰이게 되었다.
 ### Graphics Pipeline
+#### Stage
 * 1. Fetch
-  *  특정 좌표값을 받아서 메모리를 로드 하는 단계
-  * (x,y,z)로 되어있는 배열 값임
+  -  특정 좌표값을 받아서 메모리를 로드 하는 단계
+  - (x,y,z)로 되어있는 배열 값임
 * 2. vertex Processor
-  * 3차원의 공간의 어떤 위치에 존재하는지를 만들어준다.
-  * (x,y,z)를 연결하면 면을 만들 수있다.
+  - 3차원의 공간의 어떤 위치에 존재하는지를 만들어준다.
+  - (x,y,z)를 연결하면 면을 만들 수있다.
+  - vertex shader: 3D에서 실제로 볼 부분말을 뽑는 것!!!
 * 3. Rasterizer 
-  * 이들을 모두 fragment로 만든다.
+  - 이들을 모두 fragment로 만든다.
 * 4. Fragment Processor
-  * 이후 Fragment들을 병렬처리를 진행한다. ( 광원이나 시점에 따라서 색 값을 정해준게 된다. ) 
+  - 이후 Fragment들을 병렬처리를 진행한다. ( 광원이나 시점에 따라서 색 값을 정해준게 된다. )
+  - Fragment shader: 색, 광원 시점 을 Fragment정해준다.
 * 5. Output Merging  
-  * 마지막으로 Output Merging을 통해 Depth test를 진행을 한다.
-    * Depth test, 특정 부분은 보이지 않는 부분일 것이다. (즉, 날릴 부분들을 날리고, 프로세싱할 부분들은 프로세싱하면 된다.)
-    * 3차원이기에 그런 특징을 표현할 것이다.
+  - 마지막으로 Output Merging을 통해 Depth test를 진행을 한다.
+  - Depth test, 특정 부분은 보이지 않는 부분일 것이다. (즉, 날릴 부분들을 날리고, 프로세싱할 부분들은 프로세싱하면 된다.)
+  - 3차원이기에 그런 특징을 표현할 것이다.
 * 6. Famebuffer
-  * fragment들을 각각의 해상도에 맞게 표시를 진행해주는 것!!
-  
+  - fragment들을 각각의 해상도에 맞게 표시를 진행해주는 것!!
+#### 1nd gen
+> vertex -> Rasterize -> Pixel -> Test & Blend -> Framebuffer
+* Fixed data flow만 가능하다.
+* 전혀 Flexibility가 없는 구조이었다.
+#### 2nd gen
+* 모드(안개, 빛세기, 재질)들을 많이 추가 해보고 싶다!
+* 모든 모드를 지원하기 위해서는 하드웨어가 비대해질 것이다.
+#### 3rd gen
+* vertex나 pixel shading하는 부분들을 프로그래밍 가능하도록 만들어졌다.
+* 직접 C로 프로그래밍 하듯이, 자유롭게 만들 수 있게 해주었다. 
+#### 4th gen
+* CPU처럼 instruction set을 이용할 수 있도록 만들어주었다.
+* 그것이 CUDA이다.
+* FULL ISA (C언어로 만듦으로써 Flexibility가 매우 증가하였다.)
+* 지금도 매우 제한적인 개수를 갖고 있다.
+* Optimization: 최적화가 잘되어있다 --> 그래픽 프로그래밍이 최적화가 매우 잘 되어있다라는 뜻이다.
+
+## Why GPU scale so nicely
+* Parallelism에 다양한 활용 부분들이 있기 때문이다. (Workload, Programming Model) 
+* 병렬적으로 vertices들을 처리를 하고, 동일하게 실행가능하다.
+* serialization bottleneck에대한 하드웨어들을 더 효율적으로 다룰 수 있다.
+
 ## Hardware Development
 ## Early GPGPU
 ## OpenGL
