@@ -1,0 +1,109 @@
+    1  sudo apt-get install xfce4
+    2  ping www.google.com
+    3  ifconfig
+    4  ping www.google.com
+    5  ifconfig
+    6  ping www.google.com
+    7  ping 8.8.8.8
+    8  ping www.syr.edu
+    9  ping www.google.com
+   10  sudo apt-get update
+   11  sudo gedit /etc/sudoers
+   12  sudo apt-get update
+   13  sudo apt-get install xfce4
+   14  ls
+   15  ping www.google.com
+   16  cd /
+   17  find . -name 'xfce-teal.jpg'
+   18  sudo find . -name 'xfce-teal.jpg'
+   19  cd /usr/share/backgrounds/
+   20  ls
+   21  cp Black_hole_by_Marek_Koteluk_with_logo.jpg  xfce/
+   22  ll
+   23  sudo cp Black_hole_by_Marek_Koteluk_with_logo.jpg  xfce/
+   24  ls
+   25  cd xfce/
+   26  ls
+   27  sudo rm Black_hole_by_Marek_Koteluk_with_logo.jpg 
+   28  ls
+   29  cd ..
+   30  ifconfig
+   31  curl www.ipconfig.kr
+   32  curl www.ipconfig.kr > sniff_ip.txt
+   33  ls
+   34  vim sniff_ip.txt 
+   35  ls
+   36  cd Desktop/
+   37  ls
+   38  cd 2
+   39  ls
+   40  head -c pic_original.bmp 
+   41  head -c 54 pic_original.bmp > header
+   42  head -c +55 pic_original.bmp > body
+   43  tail -c +55 pic_original.bmp > body
+   44  ls
+   45  eog pic_original.bmp 
+   46  head -c +55 p1.bmp > header
+   47  ls
+   48  eog header
+   49  cp pic_original.bmp pc1.bmp
+   50  cp pic_original.bmp pc2.bmp
+   51  head -c +55 pc1.bmp > header
+   52  tail -c +55 pc2.bmp > body
+   53  head -c 54 pc1.bmp > header
+   54  ls
+   55  eog pc1.bmp 
+   56  eog pc2.bmp 
+   57  openssl enc-aes-128-ecb -e -in header -out header_c -K 00112233445566778899AABBCCDDEEFF
+   58  openssl enc -aes-128-ecb -e -in header -out header_c -K 00112233445566778899AABBCCDDEEFF
+   59  ls
+   60  openssl enc -aes-128-ecb -e -in body -out body_c -K 00112233445566778899AABBCCDDEEFF
+   61  cat header body > new.bmp
+   62  eog new.bmp 
+   63  cat header_c body_c > new.bmp
+   64  eog new.bmp 
+   65  nautilus .
+   66  ls
+   67  head -c 54 pic_original.bmp > header
+   68  tial -c +55 pic_original.bmp > body
+   69  tail -c +55 pic_original.bmp > body
+   70  openssl enc -aes-128-ecb -e -in body -out body_c -K 00112233445566778899AABBCCDDEEFF
+   71  cat header body_c > pic_ecb.bmp
+   72  eog pic_ecb.bmp 
+   73  openssl enc -aes-128-cbc -e -in body -out body_c_2 -K 00112233445566778899AABBCCDDEEFF
+   74  openssl enc -aes-128-cbc -e -in body -out body_c_2 -K 00112233445566778899AABBCCDDEEFF -iv 0
+   75  cat header body_c_2 > pic_cbc.bmp
+   76  eog pic_cbc.bmp 
+   77  history > cat history
+   78  history >  history.txt
+   79  ls
+   80  eog pic_ecb.bmp 
+   81  eog pic_ecb.bmp & eog pic_cbc.bmp & eog pic_original.bmp 
+   82  cat history.txt 
+   83  echo 'hello world' > prefix.txt
+   84  cat prefix.txt 
+   85  mkdir 3
+   86  ls
+   87  cd Desktop/
+   88  ls
+   89  mkdir 3
+   90  cd 'hello world' > prefix.txt
+   91  cd d | 'hello world' > prefix.txt
+   92  ls
+   93  cd d & cat 'hello world' > prefix.txt
+   94  ls
+   95  mv prefix.txt ./3/
+   96  ls
+   97  cd 3
+   98  ls
+   99  md6collgen -p prefix.txt -o out1.bin outb2.bin
+  100  md5collgen -p prefix.txt -o out1.bin outb2.bin
+  101  ls
+  102  diff out1.bin outb2.bin 
+  103  md5 out1.bin 
+  104  md5sum out1.bin 
+  105  md5sum oub.2in 
+  106  md5sum outb2.bin 
+  107  xxd outb2.bin 
+  108  sha256sum out1.bin 
+  109  history > history.txt
